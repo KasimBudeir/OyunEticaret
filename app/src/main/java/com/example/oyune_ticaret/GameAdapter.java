@@ -54,14 +54,18 @@ public class GameAdapter extends ArrayAdapter<Game> {
         TextView priceTextView = (TextView) listItemView.findViewById(R.id.text_price);
         // Get the game price from the current price
         // set this text on the price TextView
-        priceTextView.setText(currentGame.getPrice());
+        priceTextView.setText("Price : " + currentGame.getPrice());
 
 
         // Find the TextView in the game_item.xml layout with the ID text_price
-        TextView discountPriceTextView = (TextView) listItemView.findViewById(R.id.text_discountprice);
+
         // Get the discount price from current game
         // set this text on the discountPrice TextView
-        discountPriceTextView.setText(currentGame.getDiscountPrice());
+        if (currentGame.getDiscountPrice() != null) {
+            TextView discountPriceTextView = (TextView) listItemView.findViewById(R.id.text_discountprice);
+            discountPriceTextView.setText("Discount Price : " + currentGame.getDiscountPrice());
+        }
+
 
 
         // Find the ImageView in the game_item.xml layout with the ID image_view
